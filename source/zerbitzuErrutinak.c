@@ -14,6 +14,8 @@ ZerbitzuErrutinak.c
 //#include "proiektua01.c";
 
 
+#define denbora 3
+
 int EGOERA; // Automata zein egoeratan dagoen adierazteko erabilia
 //int 3seg;   // Hiru segundo pasatzen ote diren ikusten joateko
 
@@ -46,7 +48,7 @@ void tenpEten()
 			seg3++;
 			iprintf("\x1b[13;5HPasa diren segunduak=%d", seg);
 			tik=0;
-			if (seg3==3){
+			if (seg3==denbora){
 				konbErakutsi();
 				seg3=0;
 			}
