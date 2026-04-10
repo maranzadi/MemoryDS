@@ -15,5 +15,9 @@ extern void DenbEtenGalarazi();
 extern void ErlojuaMartxanJarri();
 extern void ErlojuaGelditu();
 
+extern int ukimenUkitua();
+exterm touchPosition ukimenPos();
+extern int zona();
+
 /***********************2025-2026*******************************/
 
