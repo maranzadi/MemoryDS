@@ -22,6 +22,7 @@ automatikoki sortzen dira, konpilatzerako garaian, baina horretarako gogoratu be
 #include "hori.h"
 #include "urdin.h"
 #include "berde.h"
+#include "definizioak.h"
 
 /* Irudiak memorian kopiatzeko DMA kanala aukeratu (3.a) */
 static const int DMA_CHANNEL = 3;
@@ -34,6 +35,29 @@ void erakutsifondo1() {    //ALDATU DAGOKION IRUDIA !!!!
                      fondo1Bitmap, // Automatikoki sortzen den aldagaia
                      (uint16 *)BG_BMP_RAM(0), // Fondo nagusiaren helbidea
                      fondo1BitmapLen); // Luzera (bytetan); automatikoki sortzen den aldagaia
+}
+
+void erakutsiKolorea(int kolorea){
+    if (kolorea==urdina)
+    {
+        erakutsiurdin();
+    }
+    else if (kolorea==gorria)
+    {
+        erakutsigorri();
+    }
+    else if (kolorea==horia)
+    {
+        erakutsihori();
+    }
+    else if (kolorea==berdea)
+    {
+        erakutsiberde();
+    }
+    
+    
+    
+    
 }
 
 void erakutsigorri() {
