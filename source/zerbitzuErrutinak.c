@@ -39,6 +39,7 @@ void tenpEten()
 	static int tik=0;
 	static int seg=0;
 	static int seg3=0;
+	static int segPunt=0;
 
 	if (EGOERA==ERAKUTSI){
 		tik++; 
@@ -77,6 +78,24 @@ void tenpEten()
 
 		}
 	}
+
+	if (EGOERA==JASO)
+	{
+		tik++;
+		
+		if (tik==2)
+		{
+			segPunt++;
+			tik=0;
+			if (segPunt>zenbat+5)
+			{
+				EGOERA==ITXITA;
+			}
+			
+		}
+		
+	}
+	
 
 }
 

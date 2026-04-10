@@ -30,7 +30,7 @@ bool sortuta=false;
 void proiektua01()
 {
 	
-	
+
 	
 	// Aldagai baten definizioa
 	int tekla=0;
@@ -67,6 +67,34 @@ void proiektua01()
 				ErlojuaMartxanJarri();
 				EGOERA=ERAKUTSI; //Erakutsi egoerara pasa
 			}
+
+			if (ukimenUkitua()&&EGOERA==ERAKUTSI)
+			{
+				ErlojuaMartxanJarri();
+				EGOERA==JASO;
+			}
+			
+			if (ukimenUkitua() && EGOERA==JASO)
+			{
+				int kol = zona();
+				if (kol==-1)
+				{
+					EGOERA==ITXITA;
+					asmatuta=0;
+				}else{
+					if (sekuentzia[asmatuta]==kol)
+					{
+						asmatuta++;
+					}else{
+						asmatuta=0;
+						EGOERA==ITXITA;
+					}
+					
+				}
+				
+
+			}
+			
 			
 			
  
