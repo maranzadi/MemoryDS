@@ -59,6 +59,15 @@ void proiektua01()
 				InfoPantailaratu(); //Informazioa pantailan jartzen du
 			
 			}
+
+			if (SakatutakoTekla()==START && (EGOERA==ZAI || EGOERA==INSTRUKZIOAK))
+			{
+				ErlojuaMartxanJarri();
+				EGOERA=ERAKUTSI; //Erakutsi egoerara pasa
+				konbErakutsi();
+			}
+			
+			
  
 		}
 	
