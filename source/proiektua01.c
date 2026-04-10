@@ -64,7 +64,6 @@ void proiektua01()
 			{
 				ErlojuaMartxanJarri();
 				EGOERA=ERAKUTSI; //Erakutsi egoerara pasa
-				konbErakutsi();
 			}
 			
 			
@@ -96,6 +95,13 @@ void konbinzaioan_gehitu(){  // Prozedura honek 0tik 3rako ausazko zenbaki bat k
 } 
 void konbErakutsi(){
 	iprintf("\x1b[14;1Hkonbinazioa errepikatzea ");	
+	size_t i;
+	for (i = 0; i < MAX; i++)
+	{
+		int aukera=sekuentzia[i];
+		erakutsiKolorea(aukera);
+	}
+	
 }
 
 /***********************2025-2026*******************************/
