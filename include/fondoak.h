@@ -12,6 +12,7 @@ extern void erakutsihori();
 extern void erakutsiurdin();
 extern void erakutsiberde();
 extern void erakutsiKolorea(int kolorea);
+extern void erakutsiDefault();
 
 /***********************2025-2026*******************************/
 

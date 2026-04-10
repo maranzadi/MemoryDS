@@ -99,17 +99,20 @@ void erakutsiAtea() {
                      AteaBitmapLen); // Luzera (bytetan); automatikoki sortzen den aldagaia
 }
 
+void erakutsiDefault() {
+	
+	dmaCopyHalfWords(DMA_CHANNEL,
+                     fondo1Bitmap, // Automatikoki sortzen den aldagaia
+                     (uint16 *)BG_BMP_RAM(0), // Fondo nagusiaren helbidea
+                     fondo1BitmapLen); // Luzera (bytetan); automatikoki sortzen den aldagaia
+}
+
 void erakutsiAteaIrekita() {
 		
     dmaCopyHalfWords(DMA_CHANNEL,
                      AteaIrekitaBitmap, // Automatikoki sortzen den aldagaia
                      (uint16 *)BG_BMP_RAM(0), // Fondo nagusiaren helbidea
                      AteaIrekitaBitmapLen); // Luzera (bytetan); automatikoki sortzen den aldagaia
-}
-
-void erakutsiKoloreak(){
-
-
 }
 /***********************2025-2026*******************************/
 
