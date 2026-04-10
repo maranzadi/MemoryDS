@@ -49,6 +49,7 @@ touchPosition PANT_DAT;
 #define JASO			3
 #define ITXITA			4
 extern int EGOERA;
+extern int zenbat;
 
 /***********************2025-2026*******************************/
 
