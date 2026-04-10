@@ -52,3 +52,8 @@ extern int EGOERA;
 
 /***********************2025-2026*******************************/
 
+// Koloreak definitu
+#define urdina 0
+#define gorria 1
+#define horia 2
+#define berdea 3
