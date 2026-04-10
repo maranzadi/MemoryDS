@@ -45,6 +45,68 @@ int SakatutakoTekla()
 
 }
 
+int ukimenUkitua() {
+
+	touchRead(&pos_pantaila); // libnds-ko funtzioa
+	
+	// Ez badago pixelik ukituta, return 0, bestela 1
+	
+	return !(pos_pantaila.px==0 && pos_pantaila.py==0);
+
+}
+
+  
+
+touchPosition ukimenPos() {
+
+	touchPosition pos;
+	
+	touchRead(&pos); //Lortzen dugu objetu bat non dauden ikututako posizioaren datuak
+	
+	return pos;
+
+}
+
+int zona(){
+
+	if (!ukimenPos)
+	{
+		return -1; //Ez bada ikutu edo ez badira egin 80 gramoko indarra -1 bat itzuliko du
+	}
+	
+	touchPosition touch = ukimenPos(); // Lortzen ditugu ikututako posizioaren datuak
+
+	int x= touch.px;
+	
+	int y = touch.py;
+
+	//Depende ze zonetan ikutzen den bueltatuko du zona bat edo beste
+	if (x<127 && y<95)
+	{
+		return urdina;
+	}
+	else if (x>=127 && y<95)
+	{
+		return gorria;
+	}
+	else if (x>=127 && y>=95)
+	{
+		return horia;
+	}
+	else if (x<127 && y>=95)
+	{
+		return berdea;
+	}
+
+	return -1;
+	
+	
+	
+
+
+}
+
+
 void konfiguratuTeklatua(int TEK_konf)
 {
 	// Teklatuaren konfigurazioa bere S/I erregistroak aldatuz
