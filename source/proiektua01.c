@@ -71,7 +71,10 @@ void proiektua01()
 			if (ukimenUkitua()&&EGOERA==ERAKUTSI)
 			{
 				ErlojuaMartxanJarri();
-				EGOERA==JASO;
+				EGOERA=JASO;
+				erakutsiDefault();
+				consoleClear();
+				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
 			}
 			
 			if (ukimenUkitua() && EGOERA==JASO)
@@ -79,21 +82,38 @@ void proiektua01()
 				int kol = zona();
 				if (kol==-1)
 				{
-					EGOERA==ITXITA;
+					EGOERA=ITXITA;
 					asmatuta=0;
 				}else{
 					if (sekuentzia[asmatuta]==kol)
 					{
 						asmatuta++;
 					}else{
-						asmatuta=0;
-						EGOERA==ITXITA;
+						
+						EGOERA=ITXITA;
+						erakutsiKolorea(sekuentzia[asmatuta]);
 					}
 					
 				}
 				
 
 			}
+			if (EGOERA==ITXITA)
+			{
+				consoleClear();
+				asmatuta=0;
+				iprintf("\x1b[14;1HGAME OVER");	
+				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+				
+			}
+
+			if (SakatutakoTekla==A && EGOERA==ITXITA)
+			{
+				EGOERA==ZAI;
+				SarreraPantailaratu();
+				erakutsiDefault();
+			}
+			
 			
 			
 			
