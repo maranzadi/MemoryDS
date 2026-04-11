@@ -21,14 +21,14 @@ int EGOERA; // Automata zein egoeratan dagoen adierazteko erabilia
 
 void tekEten ()
 {
-if(EGOERA==INSTRUKZIOAK || EGOERA==ZAI){
-	if(SakatutakoTekla()==START){
-		GrafikoakHasieratu();
-		iprintf("\x1b[1;5H INST HASI");
-		EGOERA=ERAKUTSI;
-		ErlojuaMartxanJarri();
+	if(EGOERA==INSTRUKZIOAK || EGOERA==ZAI){
+		if(SakatutakoTekla()==START){
+			GrafikoakHasieratu();
+			iprintf("\x1b[1;5H INST HASI");
+			EGOERA=ERAKUTSI;
+			ErlojuaMartxanJarri();
+		}
 	}
-}
 
 
 
