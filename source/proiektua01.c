@@ -80,6 +80,7 @@ void proiektua01()
 			if (ukimenUkitua() && EGOERA==JASO)
 			{
 				int kol = zona();
+				iprintf("\x1b[24;1HKolorea: %d", kol);
 				if (kol==-1)
 				{
 					EGOERA=ITXITA;
@@ -88,6 +89,8 @@ void proiektua01()
 					if (sekuentzia[asmatuta]==kol)
 					{
 						asmatuta++;
+						iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+						
 					}else{
 						
 						EGOERA=ITXITA;
@@ -101,14 +104,16 @@ void proiektua01()
 			if (EGOERA==ITXITA)
 			{
 				consoleClear();
-				asmatuta=0;
+				
+				lcdSwap();
 				iprintf("\x1b[14;1HGAME OVER");	
 				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
-				
+				asmatuta=0;
 			}
 
 			if (SakatutakoTekla==A && EGOERA==ITXITA)
 			{
+				lcdSwap();
 				EGOERA==ZAI;
 				SarreraPantailaratu();
 				erakutsiDefault();
@@ -144,12 +149,13 @@ void konbinzaioan_gehitu(){  // Prozedura honek 0tik 3rako ausazko zenbaki bat k
 	}
 } 
 void konbErakutsi(){
-	iprintf("\x1b[14;1Hkonbinazioa errepikatzea ");	
+		
 	size_t i;
 	for (i = 0; i < MAX; i++)
 	{
 		int aukera=sekuentzia[i];
 		erakutsiKolorea(aukera);
+		iprintf("\x1b[18;1Hkonbinazioa errepikatzea %d", aukera);
 	}
 	
 }
