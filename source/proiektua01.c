@@ -66,6 +66,7 @@ void proiektua01()
 			if (SakatutakoTekla()==START && (EGOERA==ZAI || EGOERA==INSTRUKZIOAK))
 			{
 				//ErlojuaMartxanJarri();
+				erakutsiDefault();
 				EGOERA=ERAKUTSI; //Erakutsi egoerara pasa
 			}
 

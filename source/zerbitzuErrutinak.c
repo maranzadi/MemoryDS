@@ -90,6 +90,7 @@ void tenpEten()
 		{
 			segPunt++;
 			tik=0;
+			iprintf("\x1b[13;5HDenbora=%d", (zenbat+5)-segPunt);
 			if (segPunt>zenbat+5)
 			{
 				EGOERA==ITXITA;
