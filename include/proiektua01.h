@@ -4,6 +4,10 @@
 jokoa01
 ---------------------------------------------------------------------------------*/
 void proiektua01();
+void konbErakutsi();
+void konbinzaioan_gehitu();
+int ausazko_zbki_bat_itzuli();
+extern int asmatuta;
 
 /***********************2025-2026*******************************/
 

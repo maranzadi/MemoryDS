@@ -11,7 +11,7 @@ ZerbitzuErrutinak.c
 #include "fondoak.h"
 #include "spriteak.h"
 #include "grafikoak.h"
-//#include "proiektua01.c";
+#include "proiektua01.h";
 
 
 #define denbora 3
@@ -90,8 +90,8 @@ void tenpEten()
 		{
 			segPunt++;
 			tik=0;
-			iprintf("\x1b[13;5HDenbora=%d", (zenbat+5)-segPunt);
-			if (segPunt>zenbat+5)
+			iprintf("\x1b[13;5HDenbora=%d", (asmatuta+5)-segPunt);
+			if (segPunt>asmatuta+5)
 			{
 				EGOERA==ITXITA;
 			}

@@ -64,6 +64,8 @@ void proiektua01()
 
 			if (SakatutakoTekla()==START && (EGOERA==ZAI || EGOERA==INSTRUKZIOAK))
 			{
+				consoleClear();
+				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
 				//ErlojuaMartxanJarri();
 				erakutsiDefault();
 				EGOERA=ERAKUTSI; //Erakutsi egoerara pasa
@@ -74,8 +76,7 @@ void proiektua01()
 				EGOERA=JASO;
 				//ErlojuaMartxanJarri();
 				erakutsiDefault();
-				consoleClear();
-				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+				
 			}
 			
 			if (ukimenUkitua() && EGOERA==JASO)
