@@ -58,10 +58,12 @@ void tenpEten()
 
 	}
 	if (EGOERA==ZAI){
+		consoleClear();
 		tik++;
 		if (tik==2){
 			seg++;
 			tik=0;
+			iprintf("\x1b[13;5HPasa diren segunduak=%d", seg);
 			if (seg==1){
 				erakutsiurdin();
 			}

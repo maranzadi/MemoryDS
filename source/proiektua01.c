@@ -106,16 +106,17 @@ void proiektua01()
 			}
 			if (EGOERA==ITXITA)
 			{
-				consoleClear();
+				//consoleClear();
 				
 				lcdSwap();
 				iprintf("\x1b[14;1HGAME OVER");	
 				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
-				asmatuta=0;
+				EGOERA=GALDU;
 			}
 
-			if (SakatutakoTekla==A && EGOERA==ITXITA)
+			if (SakatutakoTekla==A && EGOERA==GALDU)
 			{
+				asmatuta=0;
 				lcdSwap();
 				EGOERA==ZAI;
 				SarreraPantailaratu();
