@@ -24,7 +24,6 @@ adibide batean oinarrituta.
 int denb; // denbora neurtzen joateko; baloratu ea beharrezkoa den
 #define  MAX 50 /// MAX definituta (ARRAYAREN TAMAINA MAXIMOA)
 int sekuentzia[MAX];
-int zenbat=0;
 int asmatuta=0;
 bool sortuta=false;
 void proiektua01()
@@ -44,7 +43,7 @@ void proiektua01()
 	etenZerbErrutEzarri();			  // Zerbitzu errutinak gordetzen ditu.
 	TekEtenBaimendu();			 // Teklatuaren etenak baimendu
 	DenbEtenBaimendu();			// Tenporizadorearen etenak baimendu.
-	
+	konbinzaioan_gehitu();
 
 	while (1)
 	{	
@@ -94,6 +93,7 @@ void proiektua01()
 					{
 						asmatuta++;
 						iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+						konbinzaioan_gehitu();
 
 					}else{
 						
@@ -148,16 +148,15 @@ int ausazko_zbki_bat_itzuli(){	// Funtzio honek 0tik 3rako ausazko zenbaki bat i
 }
 void konbinzaioan_gehitu(){  // Prozedura honek 0tik 3rako ausazko zenbaki bat konbinazio arrayan gehitzen du 
 			    // hau beteta ez dagoen bitartean 
-	if (zenbat<MAX){
+	if ((asmatuta+1)<MAX){
 		int gehitu = ausazko_zbki_bat_itzuli();  
-		sekuentzia[zenbat]=gehitu;
-		zenbat++;
+		sekuentzia[asmatuta]=gehitu;
 	}
 } 
 void konbErakutsi(){
 		
 	size_t i;
-	for (i = 0; i < MAX; i++)
+	for (i = 0; i < asmatuta; i++)
 	{
 		int aukera=sekuentzia[i];
 		erakutsiKolorea(aukera);
