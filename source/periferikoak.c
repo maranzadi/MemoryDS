@@ -11,6 +11,7 @@ periferikoak.c
 
 int tekla; // Sakatutako tekla gordetzeko aldagaia; baloratu ea behar den
 
+touchPosition pos_pantaila; // aldagai globala
 
 
 int TeklaDetektatu() 

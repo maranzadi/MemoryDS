@@ -24,7 +24,7 @@ adibide batean oinarrituta.
 int denb; // denbora neurtzen joateko; baloratu ea beharrezkoa den
 #define  MAX 50 /// MAX definituta (ARRAYAREN TAMAINA MAXIMOA)
 int sekuentzia[MAX];
-zenbat=0;
+int zenbat=0;
 int asmatuta=0;
 bool sortuta=false;
 void proiektua01()
