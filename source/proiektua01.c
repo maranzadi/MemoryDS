@@ -55,7 +55,7 @@ void proiektua01()
 
 		ErlojuaMartxanJarri();
 		if(TeklaDetektatu()){
-			ErlojuaGelditu();
+			//ErlojuaGelditu();
 			if (SakatutakoTekla()==SELECT && EGOERA==ZAI){
 				EGOERA=INSTRUKZIOAK;
 				
@@ -63,16 +63,16 @@ void proiektua01()
 			
 			}
 
-			/*if (SakatutakoTekla()==START && (EGOERA==ZAI || EGOERA==INSTRUKZIOAK))
+			if (SakatutakoTekla()==START && (EGOERA==ZAI || EGOERA==INSTRUKZIOAK))
 			{
-				ErlojuaMartxanJarri();
+				//ErlojuaMartxanJarri();
 				EGOERA=ERAKUTSI; //Erakutsi egoerara pasa
-			}*/
+			}
 
 			if (ukimenUkitua()&&EGOERA==ERAKUTSI)
 			{
 				EGOERA=JASO;
-				ErlojuaMartxanJarri();
+				//ErlojuaMartxanJarri();
 				erakutsiDefault();
 				consoleClear();
 				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
@@ -80,7 +80,7 @@ void proiektua01()
 			
 			if (ukimenUkitua() && EGOERA==JASO)
 			{
-				ErlojuaMartxanJarri();
+				//ErlojuaMartxanJarri();
 				erakutsiDefault();
 				int kol = zona();
 				iprintf("\x1b[22;1HKolorea: %d", kol);
@@ -106,7 +106,7 @@ void proiektua01()
 			}
 			if (EGOERA==ITXITA)
 			{
-				//consoleClear();
+				consoleClear();
 				
 				lcdSwap();
 				iprintf("\x1b[14;1HGAME OVER");	

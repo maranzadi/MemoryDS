@@ -24,7 +24,7 @@ void tekEten ()
 	if(EGOERA==INSTRUKZIOAK || EGOERA==ZAI){
 		if(SakatutakoTekla()==START){
 			GrafikoakHasieratu();
-			iprintf("\x1b[1;5H INST HASI");
+			//iprintf("\x1b[1;5H INST HASI");
 			EGOERA=ERAKUTSI;
 			ErlojuaMartxanJarri();
 		}
@@ -41,7 +41,7 @@ void tenpEten()
 	static int seg3=0;
 	static int segPunt=0;
 
-	iprintf("\x1b[23;5HErlojua hasita");
+	//iprintf("\x1b[23;5HErlojua hasita");
 	if (EGOERA==ERAKUTSI){
 		tik++; 
 		if (tik==2)
@@ -58,12 +58,12 @@ void tenpEten()
 
 	}
 	if (EGOERA==ZAI){
-		consoleClear();
+		//consoleClear();
 		tik++;
 		if (tik==2){
 			seg++;
 			tik=0;
-			iprintf("\x1b[13;5HPasa diren segunduak=%d", seg);
+			//iprintf("\x1b[13;5HPasa diren segunduak=%d", seg);
 			if (seg==1){
 				erakutsiurdin();
 			}
@@ -71,10 +71,10 @@ void tenpEten()
 				erakutsigorri();
 			}
 			else if (seg==3){
-				erakutsiberde();
+				erakutsihori();
 			}
 			else if (seg==4){
-				erakutsihori();
+				erakutsiberde();
 				seg=0;
 			}
 	
