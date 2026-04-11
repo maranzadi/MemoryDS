@@ -41,15 +41,16 @@ void tenpEten()
 	static int seg3=0;
 	static int segPunt=0;
 
+	iprintf("\x1b[23;5HErlojua hasita");
 	if (EGOERA==ERAKUTSI){
 		tik++; 
 		if (tik==2)
 		{
 			seg++;
 			seg3++;
-			iprintf("\x1b[13;5HPasa diren segunduak=%d", seg);
+			//iprintf("\x1b[13;5HPasa diren segunduak=%d", seg);
 			tik=0;
-			if (seg3==denbora){
+			if (seg3>=denbora){
 				konbErakutsi();
 				seg3=0;
 			}

@@ -82,7 +82,7 @@ void proiektua01()
 				ErlojuaMartxanJarri();
 				erakutsiDefault();
 				int kol = zona();
-				iprintf("\x1b[24;1HKolorea: %d", kol);
+				iprintf("\x1b[22;1HKolorea: %d", kol);
 				if (kol==-1)
 				{
 					EGOERA=ITXITA;
