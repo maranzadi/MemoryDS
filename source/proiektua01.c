@@ -48,7 +48,8 @@ void proiektua01()
 
 	while (1)
 	{	
-		
+		iprintf("\x1b[1;1HEgoera: %d", EGOERA);
+
 		// ZAI egoeran dagoela, teklatuaren inkesta egin, sakatu den tekla SELECT bada informazioa erakutsi, 
 		// eta START sakatzean jokoa hasi
 
