@@ -121,18 +121,9 @@ void proiektua01()
 				
 
 			}
-			if (EGOERA==ITXITA)
-			{
-				EGOERA=GALDU;
-				consoleClear();
-				
-				lcdSwap();
-				iprintf("\x1b[14;1HGAME OVER");	
-				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
-				
-			}
+			
 
-			if (SakatutakoTekla()==A && (EGOERA==GALDU))
+			if ((SakatutakoTekla()==A) && (EGOERA==GALDU))
 			{
 				EGOERA=ZAI;
 				consoleClear();
@@ -149,6 +140,17 @@ void proiektua01()
 			
 			
  
+		}
+		if (EGOERA==ITXITA)
+		{
+			
+			consoleClear();
+			
+			lcdSwap();
+			iprintf("\x1b[14;1HGAME OVER");	
+			iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+			EGOERA=GALDU;
+			
 		}
 	
 			

@@ -34,6 +34,8 @@ int SakatutakoTekla()
 	else if((~TEKLAK_DAT& 0x0080)!=0) return BEHERA; //Behera
 	else if((~TEKLAK_DAT& 0x0100)!=0) return R; //R
 	else if((~TEKLAK_DAT& 0x0200)!=0) return L; //L
+
+	return -1;
 	
 
 
