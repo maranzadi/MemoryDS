@@ -27,6 +27,8 @@ int sekuentzia[MAX];
 int asmatuta=0;
 bool sortuta=false;
 int zenbat=0;
+int luzeera=0;
+int input_index=0;
 void proiektua01()
 {
 	
@@ -34,6 +36,7 @@ void proiektua01()
 	
 	// Aldagai baten definizioa
 	int tekla=0;
+	zenbat=0;
 
 	EGOERA=ZAI; 	        // Egoera definitu
 
@@ -46,6 +49,8 @@ void proiektua01()
 	DenbEtenBaimendu();			// Tenporizadorearen etenak baimendu.
 	konbinzaioan_gehitu();
 
+
+	ErlojuaMartxanJarri();
 	while (1)
 	{	
 		//iprintf("\x1b[1;1HEgoera: %d", EGOERA);
@@ -53,8 +58,8 @@ void proiektua01()
 		// ZAI egoeran dagoela, teklatuaren inkesta egin, sakatu den tekla SELECT bada informazioa erakutsi, 
 		// eta START sakatzean jokoa hasi
 
-		ErlojuaMartxanJarri();
-		if(TeklaDetektatu()){
+		
+		if(TeklaDetektatu()||ukimenUkitua()){
 			//ErlojuaGelditu();
 			if (SakatutakoTekla()==SELECT && EGOERA==ZAI){
 				EGOERA=INSTRUKZIOAK;
@@ -68,23 +73,26 @@ void proiektua01()
 				consoleClear();
 				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
 				//ErlojuaMartxanJarri();
-				erakutsiDefault();
-				EGOERA=ERAKUTSI; //Erakutsi egoerara pasa
-			}
-
-			if (EGOERA==ERAKUTSI)
-			{
-				EGOERA=JASO;
-				//ErlojuaMartxanJarri();
 				//erakutsiDefault();
-				//iprintf("\x1b[22;1HKolorea: %d", 6);
-
+				erakutsiAtea();
+				EGOERA=ERAKUTSI;
+				//zenbat=0;
 			}
+
+			// if (EGOERA==ERAKUTSI)
+			// {
+			// 	EGOERA=JASO;
+			// 	//ErlojuaMartxanJarri();
+			// 	//erakutsiDefault();
+			// 	//erakutsiAteaIrekita();
+			// 	//iprintf("\x1b[22;1HKolorea: %d", 6);
+
+			// }
 			
 			if (ukimenUkitua() && EGOERA==JASO)
 			{
 				//ErlojuaMartxanJarri();
-				erakutsiDefault();
+				//erakutsiDefault();
 				int kol = zona();
 				iprintf("\x1b[22;1HKolorea: %d", kol);
 				if (kol==-1)
@@ -92,17 +100,22 @@ void proiektua01()
 					EGOERA=ITXITA;
 					asmatuta=0;
 				}else{
-					if (sekuentzia[asmatuta]==kol)
+					if (sekuentzia[input_index]==kol)
 					{
-						asmatuta++;
+						input_index++;
 						iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
-						konbinzaioan_gehitu();
-						zenbat++;
+						if (input_index == luzera) {
+							konbinzaioan_gehitu();
+							input_index = 0;
+							asmatuta++;
+							zenbat=0;
+							EGOERA=ERAKUTSI;
+						}
 
 					}else{
 						
 						EGOERA=ITXITA;
-						erakutsiKolorea(sekuentzia[asmatuta]);
+						erakutsiKolorea(sekuentzia[input_index]);
 					}
 					
 				}
@@ -111,20 +124,23 @@ void proiektua01()
 			}
 			if (EGOERA==ITXITA)
 			{
+				EGOERA=GALDU;
 				consoleClear();
 				
 				lcdSwap();
 				iprintf("\x1b[14;1HGAME OVER");	
 				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
-				EGOERA=GALDU;
+				
 			}
 
 			if (SakatutakoTekla()==A && (EGOERA==GALDU||EGOERA==ITXITA))
 			{
-				EGOERA==ZAI;
+				EGOERA=ZAI;
 				consoleClear();
 				asmatuta=0;
-				zenbat==0;
+				zenbat=0;
+				luzeera=0;
+				input_index=0;
 				lcdSwap();
 				SarreraPantailaratu();
 				erakutsiDefault();
@@ -154,7 +170,7 @@ int ausazko_zbki_bat_itzuli(){	// Funtzio honek 0tik 3rako ausazko zenbaki bat i
 void konbinzaioan_gehitu(){  // Prozedura honek 0tik 3rako ausazko zenbaki bat konbinazio arrayan gehitzen du 
 			    // hau beteta ez dagoen bitartean 
 	int gehitu = ausazko_zbki_bat_itzuli();  
-	sekuentzia[asmatuta]=gehitu;
+	sekuentzia[luzeera++]=gehitu;
 	
 	
 } 
@@ -162,8 +178,15 @@ void konbErakutsi(){
 		
 	int aukera=sekuentzia[zenbat];
 	erakutsiKolorea(aukera);
-	iprintf("\x1b[18;1Hkonbinazioa errepikatzea %d", aukera);
+	iprintf("\x1b[18;1Hkonbinazioa errepikatzea %d", zenbat);
 	zenbat++;
+	if (zenbat>=luzeera)
+	{
+		zenbat=0;
+		segPunt=0;
+		EGOERA=JASO; //Erakutsi egoerara pasa
+	}
+	
 }
 
 /***********************2025-2026*******************************/

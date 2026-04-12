@@ -33,13 +33,15 @@ void tekEten ()
 
 
 }
-
+int segPunt=0;
 void tenpEten()
 {
 	static int tik=0;
 	static int seg=0;
 	static int seg3=0;
-	static int segPunt=0;
+	
+
+	
 
 	//iprintf("\x1b[23;5HErlojua hasita");
 	if (EGOERA==ERAKUTSI){
