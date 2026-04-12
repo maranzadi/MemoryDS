@@ -119,7 +119,7 @@ void proiektua01()
 				EGOERA=GALDU;
 			}
 
-			if (SakatutakoTekla==A && EGOERA==GALDU)
+			if (SakatutakoTekla()==A && EGOERA==GALDU)
 			{
 				consoleClear();
 				asmatuta=0;
