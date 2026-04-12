@@ -97,7 +97,6 @@ void proiektua01()
 				if (kol==-1)
 				{
 					EGOERA=ITXITA;
-					asmatuta=0;
 				}else{
 					if (sekuentzia[input_index]==kol)
 					{
