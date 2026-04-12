@@ -119,12 +119,13 @@ void proiektua01()
 				EGOERA=GALDU;
 			}
 
-			if (SakatutakoTekla()==A && EGOERA==GALDU)
+			if (SakatutakoTekla()==A && (EGOERA==GALDU||EGOERA==ITXITA))
 			{
+				EGOERA==ZAI;
 				consoleClear();
 				asmatuta=0;
+				zenbat==0;
 				lcdSwap();
-				EGOERA==ZAI;
 				SarreraPantailaratu();
 				erakutsiDefault();
 			}
