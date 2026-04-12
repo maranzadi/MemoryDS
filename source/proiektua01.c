@@ -149,10 +149,10 @@ int ausazko_zbki_bat_itzuli(){	// Funtzio honek 0tik 3rako ausazko zenbaki bat i
 }
 void konbinzaioan_gehitu(){  // Prozedura honek 0tik 3rako ausazko zenbaki bat konbinazio arrayan gehitzen du 
 			    // hau beteta ez dagoen bitartean 
-	if ((asmatuta+1)<MAX){
-		int gehitu = ausazko_zbki_bat_itzuli();  
-		sekuentzia[asmatuta]=gehitu;
-	}
+	int gehitu = ausazko_zbki_bat_itzuli();  
+	sekuentzia[asmatuta]=gehitu;
+	
+	
 } 
 void konbErakutsi(){
 		
