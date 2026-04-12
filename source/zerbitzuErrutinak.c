@@ -45,18 +45,28 @@ void tenpEten()
 
 	//iprintf("\x1b[23;5HErlojua hasita");
 	if (EGOERA==ERAKUTSI){
-		tik++; 
-		if (tik==2)
-		{
-			seg3++;
-			//iprintf("\x1b[13;5HPasa diren segunduak=%d", seg);
+		tik++;
+		if (tik==2){
 			tik=0;
-			if (seg3>=denbora){
-				konbErakutsi();
-				seg3=0;
+			seg++;
+
+			if (seg % 2 == 1){
+				// Mostrar color de la secuencia
+				int aukera = sekuentzia[zenbat];
+				erakutsiKolorea(aukera);
+			} else {
+				// Limpiar pantalla
+				erakutsiDefault();
+				zenbat++;
+
+				if (zenbat >= luzera){
+					zenbat = 0;
+					seg = 0;
+					segPunt = 0;
+					EGOERA = JASO;
+				}
 			}
 		}
-
 	}
 	if (EGOERA==ZAI){
 		//consoleClear();

@@ -22,7 +22,6 @@ adibide batean oinarrituta.
 #include <time.h> //Alea sortzeko
 
 int denb; // denbora neurtzen joateko; baloratu ea beharrezkoa den
-#define  MAX 50 /// MAX definituta (ARRAYAREN TAMAINA MAXIMOA)
 int sekuentzia[MAX];
 int asmatuta=0;
 bool sortuta=false;
