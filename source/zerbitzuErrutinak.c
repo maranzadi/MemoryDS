@@ -46,7 +46,6 @@ void tenpEten()
 		tik++; 
 		if (tik==2)
 		{
-			seg++;
 			seg3++;
 			//iprintf("\x1b[13;5HPasa diren segunduak=%d", seg);
 			tik=0;
@@ -93,7 +92,7 @@ void tenpEten()
 			iprintf("\x1b[13;5HDenbora=%d", (asmatuta+5)-segPunt);
 			if (segPunt>asmatuta+5)
 			{
-				EGOERA==ITXITA;
+				EGOERA=ITXITA;
 			}
 			
 		}

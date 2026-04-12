@@ -26,6 +26,7 @@ int denb; // denbora neurtzen joateko; baloratu ea beharrezkoa den
 int sekuentzia[MAX];
 int asmatuta=0;
 bool sortuta=false;
+int zenbat=0;
 void proiektua01()
 {
 	
@@ -71,12 +72,13 @@ void proiektua01()
 				EGOERA=ERAKUTSI; //Erakutsi egoerara pasa
 			}
 
-			if (ukimenUkitua()&&EGOERA==ERAKUTSI)
+			if (EGOERA==ERAKUTSI)
 			{
 				EGOERA=JASO;
 				//ErlojuaMartxanJarri();
-				erakutsiDefault();
-				
+				//erakutsiDefault();
+				//iprintf("\x1b[22;1HKolorea: %d", 6);
+
 			}
 			
 			if (ukimenUkitua() && EGOERA==JASO)
@@ -95,6 +97,7 @@ void proiektua01()
 						asmatuta++;
 						iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
 						konbinzaioan_gehitu();
+						zenbat++;
 
 					}else{
 						
@@ -156,14 +159,10 @@ void konbinzaioan_gehitu(){  // Prozedura honek 0tik 3rako ausazko zenbaki bat k
 } 
 void konbErakutsi(){
 		
-	size_t i;
-	for (i = 0; i <= asmatuta; i++)
-	{
-		int aukera=sekuentzia[i];
-		erakutsiKolorea(aukera);
-		iprintf("\x1b[18;1Hkonbinazioa errepikatzea %d", aukera);
-	}
-	
+	int aukera=sekuentzia[zenbat];
+	erakutsiKolorea(aukera);
+	iprintf("\x1b[18;1Hkonbinazioa errepikatzea %d", aukera);
+	zenbat++;
 }
 
 /***********************2025-2026*******************************/
