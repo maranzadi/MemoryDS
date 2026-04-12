@@ -27,7 +27,7 @@ int sekuentzia[MAX];
 int asmatuta=0;
 bool sortuta=false;
 int zenbat=0;
-int luzeera=0;
+int luzera=0;
 int input_index=0;
 void proiektua01()
 {
@@ -133,13 +133,13 @@ void proiektua01()
 				
 			}
 
-			if (SakatutakoTekla()==A && (EGOERA==GALDU||EGOERA==ITXITA))
+			if (SakatutakoTekla()==A && (EGOERA==GALDU))
 			{
 				EGOERA=ZAI;
 				consoleClear();
 				asmatuta=0;
 				zenbat=0;
-				luzeera=0;
+				luzera=0;
 				input_index=0;
 				lcdSwap();
 				SarreraPantailaratu();
@@ -170,7 +170,7 @@ int ausazko_zbki_bat_itzuli(){	// Funtzio honek 0tik 3rako ausazko zenbaki bat i
 void konbinzaioan_gehitu(){  // Prozedura honek 0tik 3rako ausazko zenbaki bat konbinazio arrayan gehitzen du 
 			    // hau beteta ez dagoen bitartean 
 	int gehitu = ausazko_zbki_bat_itzuli();  
-	sekuentzia[luzeera++]=gehitu;
+	sekuentzia[luzera++]=gehitu;
 	
 	
 } 
@@ -180,7 +180,7 @@ void konbErakutsi(){
 	erakutsiKolorea(aukera);
 	iprintf("\x1b[18;1Hkonbinazioa errepikatzea %d", zenbat);
 	zenbat++;
-	if (zenbat>=luzeera)
+	if (zenbat>=luzera)
 	{
 		zenbat=0;
 		segPunt=0;
