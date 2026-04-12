@@ -183,6 +183,7 @@ void konbErakutsi(){
 	{
 		zenbat=0;
 		segPunt=0;
+		input_index=0;
 		EGOERA=JASO; //Erakutsi egoerara pasa
 	}
 	
