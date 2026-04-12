@@ -157,7 +157,7 @@ void konbinzaioan_gehitu(){  // Prozedura honek 0tik 3rako ausazko zenbaki bat k
 void konbErakutsi(){
 		
 	size_t i;
-	for (i = 0; i < asmatuta; i++)
+	for (i = 0; i <= asmatuta; i++)
 	{
 		int aukera=sekuentzia[i];
 		erakutsiKolorea(aukera);
