@@ -66,17 +66,15 @@ void proiektua01()
 
 			if (SakatutakoTekla()==L)
 			{
-				if (logEgin==0)
-				{
-					logak();
-					logEgin=LOG;
-				}
-				else if (logEgin==LOG)
-				{
-					logEgin=0;
-				}
+				logak();
+				logEgin=LOG;
 				
-				
+			}
+
+			if (SakatutakoTekla()==R)
+			{
+				consoleClear();
+				logEgin=0;
 				
 			}
 			

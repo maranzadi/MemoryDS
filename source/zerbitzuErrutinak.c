@@ -119,17 +119,17 @@ void tenpEten()
 		
 	}
 
-	if (logEgin=LOG)
-	{
-		tik++;
+	// if (logEgin=LOG)
+	// {
+	// 	tik++;
 		
-		if (tik==3)
-		{
-			logak();
-			tik=0;
+	// 	if (tik==3)
+	// 	{
+	// 		logak();
+	// 		tik=0;
 			
-		}
-	}
+	// 	}
+	// }
 	
 	
 
