@@ -56,7 +56,7 @@ void tenpEten()
 				erakutsiKolorea(aukera);
 			} else {
 				// Limpiar pantalla
-				erakutsiDefault();
+				//erakutsiDefault();
 				zenbat++;
 
 				if (zenbat >= luzera){
