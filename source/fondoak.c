@@ -22,6 +22,7 @@ automatikoki sortzen dira, konpilatzerako garaian, baina horretarako gogoratu be
 #include "hori.h"
 #include "urdin.h"
 #include "berde.h"
+#include "beltza.h"
 #include "definizioak.h"
 
 /* Irudiak memorian kopiatzeko DMA kanala aukeratu (3.a) */
@@ -76,9 +77,9 @@ void erakutsigorri() {
 void erakutsiBlack() {
 	
 	dmaCopyHalfWords(DMA_CHANNEL,
-                     blackBitmap, // Automatikoki sortzen den aldagaia
+                     beltzaBitmap, // Automatikoki sortzen den aldagaia
                      (uint16 *)BG_BMP_RAM(0), // Fondo nagusiaren helbidea
-                     blackBitmapLen); // Luzera (bytetan); automatikoki sortzen den aldagaia
+                     beltzaBitmapLen); // Luzera (bytetan); automatikoki sortzen den aldagaia
 }
 
 void erakutsihori() {

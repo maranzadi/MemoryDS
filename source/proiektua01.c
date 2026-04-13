@@ -71,6 +71,7 @@ void proiektua01()
 			{
 				consoleClear();
 				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+				erakutsiKolorea(beltza);
 				//ErlojuaMartxanJarri();
 				//erakutsiDefault();
 				//erakutsiAtea();
