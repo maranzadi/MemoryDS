@@ -7,6 +7,7 @@ void proiektua01();
 void konbErakutsi();
 void konbinzaioan_gehitu();
 int ausazko_zbki_bat_itzuli();
+void log();
  /// MAX definituta (ARRAYAREN TAMAINA MAXIMOA)
 
 extern int asmatuta;
