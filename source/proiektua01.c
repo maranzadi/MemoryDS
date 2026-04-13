@@ -149,6 +149,10 @@ void proiektua01()
 			iprintf("\x1b[14;1HGAME OVER");	
 			iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
 			EGOERA=GALDU;
+			asmatuta=0;
+			zenbat=0;
+			luzera=0;
+			input_index=0;
 			
 		}
 	
