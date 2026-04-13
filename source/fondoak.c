@@ -68,6 +68,14 @@ void erakutsigorri() {
                      gorriBitmapLen); // Luzera (bytetan); automatikoki sortzen den aldagaia
 }
 
+void erakutsiBlack() {
+	
+	dmaCopyHalfWords(DMA_CHANNEL,
+                     blackBitmap, // Automatikoki sortzen den aldagaia
+                     (uint16 *)BG_BMP_RAM(0), // Fondo nagusiaren helbidea
+                     blackBitmapLen); // Luzera (bytetan); automatikoki sortzen den aldagaia
+}
+
 void erakutsihori() {
 	
 	dmaCopyHalfWords(DMA_CHANNEL,
