@@ -236,7 +236,7 @@ void logak(){
 			non++;
 		}
 		
-		iprintf("\x1b[%d;%dHInputIndex: %d", non, i+2, sekuentzia[zenbat]);
+		iprintf("\x1b[%d;%dHSekuentzia: %d", non, i+2, sekuentzia[zenbat]);
 	}
 	
 }
