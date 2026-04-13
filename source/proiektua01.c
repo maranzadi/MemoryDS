@@ -29,6 +29,8 @@ int zenbat=0;
 int luzera=0;
 int input_index=0;
 int kol =-2;
+
+int logEgin=0;
 void proiektua01()
 {
 	
@@ -64,7 +66,18 @@ void proiektua01()
 
 			if (SakatutakoTekla()==L)
 			{
-				logak();
+				if (logEgin==0)
+				{
+					logak();
+					logEgin=LOG;
+				}
+				else if (logEgin==LOG)
+				{
+					logEgin=0;
+				}
+				
+				
+				
 			}
 			
 			if (SakatutakoTekla()==SELECT && EGOERA==ZAI){
@@ -105,7 +118,8 @@ void proiektua01()
 				iprintf("\x1b[22;1HKolorea: %d", kol);
 				if (kol==-1)
 				{
-					EGOERA=ERROR;
+					EGOERA=ITXITA;
+					logEgin=LOG;
 				}else{
 					if (sekuentzia[input_index]==kol)
 					{
@@ -166,7 +180,7 @@ void proiektua01()
 			
 		}
 	
-		if(EGOERA==ERROR){
+		if(logEgin==LOG){
 			logak();
 
 		}
