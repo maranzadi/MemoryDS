@@ -64,7 +64,7 @@ void proiektua01()
 
 			if (SakatutakoTekla()==L)
 			{
-				log();
+				logak();
 			}
 			
 			if (SakatutakoTekla()==SELECT && EGOERA==ZAI){
@@ -84,6 +84,7 @@ void proiektua01()
 				//erakutsiAtea();
 				EGOERA=ERAKUTSI;
 				//zenbat=0;
+				input_index=0;
 			}
 
 			// if (EGOERA==ERAKUTSI)
@@ -166,7 +167,7 @@ void proiektua01()
 		}
 	
 		if(EGOERA==ERROR){
-			log();
+			logak();
 
 		}
 			
@@ -207,7 +208,7 @@ void konbErakutsi(){
 	
 }
 
-void log(){
+void logak(){
 	consoleClear();
 	iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
 	iprintf("\x1b[18;1HKolorea: %d", kol);
