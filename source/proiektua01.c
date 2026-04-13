@@ -73,7 +73,7 @@ void proiektua01()
 				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
 				//ErlojuaMartxanJarri();
 				//erakutsiDefault();
-				erakutsiAtea();
+				//erakutsiAtea();
 				EGOERA=ERAKUTSI;
 				//zenbat=0;
 			}
