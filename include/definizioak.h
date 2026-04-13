@@ -59,6 +59,6 @@ extern int zenbat;
 #define gorria 1
 #define horia 2
 #define berdea 3
-
+#define beltza 4
 
 #define  MAX 50

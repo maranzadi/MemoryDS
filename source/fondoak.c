@@ -54,6 +54,11 @@ void erakutsiKolorea(int kolorea){
     {
         erakutsiberde();
     }
+    else if (kolorea==beltza)
+    {
+        erakutsiBlack();
+    }
+    
     
     
     
