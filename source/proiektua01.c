@@ -180,10 +180,9 @@ void proiektua01()
 			
 		}
 	
-		if(logEgin==LOG){
-			logak();
-
-		}
+		// if(logEgin==LOG){
+		// 	logak();
+		// }
 			
 	}
 	IME=0;// Bukaeran etenak galarazi.

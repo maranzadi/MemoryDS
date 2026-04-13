@@ -118,6 +118,19 @@ void tenpEten()
 		}
 		
 	}
+
+	if (logEgin=LOG)
+	{
+		tik++;
+		
+		if (tik==3)
+		{
+			logak();
+			tik=0;
+			
+		}
+	}
+	
 	
 
 }
