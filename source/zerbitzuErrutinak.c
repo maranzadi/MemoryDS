@@ -106,6 +106,7 @@ void tenpEten()
 		
 		if (tik==2)
 		{
+			erakutsiKolorea(beltza);
 			segPunt++;
 			tik=0;
 			iprintf("\x1b[13;5HDenbora=%d", (asmatuta+5)-segPunt);
