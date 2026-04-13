@@ -8,6 +8,7 @@ extern void erakutsiAtea();
 extern void erakutsiAteaIrekita();
 extern void erakutsifondo1();
 extern void erakutsigorri();
+extern void erakutsiBlack();
 extern void erakutsihori();
 extern void erakutsiurdin();
 extern void erakutsiberde();

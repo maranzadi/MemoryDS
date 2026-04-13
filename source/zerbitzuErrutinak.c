@@ -56,7 +56,7 @@ void tenpEten()
 				erakutsiKolorea(aukera);
 			} else {
 				// Limpiar pantalla
-				erakutsiDefault();
+				//erakutsiDefault();
 				zenbat++;
 
 				if (zenbat >= luzera){
@@ -75,19 +75,26 @@ void tenpEten()
 			seg++;
 			tik=0;
 			//iprintf("\x1b[13;5HPasa diren segunduak=%d", seg);
-			if (seg==1){
-				erakutsiurdin();
-			}
-			else if (seg==2){
-				erakutsigorri();
-			}
-			else if (seg==3){
-				erakutsihori();
-			}
-			else if (seg==4){
-				erakutsiberde();
+			erakutsiKolorea(seg-1);
+			if (seg==4)
+			{
 				seg=0;
 			}
+			
+			
+			// if (seg==1){
+			// 	erakutsiurdin();
+			// }
+			// else if (seg==2){
+			// 	erakutsigorri();
+			// }
+			// else if (seg==3){
+			// 	erakutsihori();
+			// }
+			// else if (seg==4){
+			// 	erakutsiberde();
+			// 	seg=0;
+			// }
 	
 
 		}
@@ -99,6 +106,7 @@ void tenpEten()
 		
 		if (tik==2)
 		{
+			erakutsiKolorea(beltza);
 			segPunt++;
 			tik=0;
 			iprintf("\x1b[13;5HDenbora=%d", (asmatuta+5)-segPunt);

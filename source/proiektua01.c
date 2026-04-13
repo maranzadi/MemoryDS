@@ -28,6 +28,7 @@ bool sortuta=false;
 int zenbat=0;
 int luzera=0;
 int input_index=0;
+int kol =-2;
 void proiektua01()
 {
 	
@@ -47,7 +48,7 @@ void proiektua01()
 	TekEtenBaimendu();			 // Teklatuaren etenak baimendu
 	DenbEtenBaimendu();			// Tenporizadorearen etenak baimendu.
 	konbinzaioan_gehitu();
-
+	erakutsiDefault();
 
 	ErlojuaMartxanJarri();
 	while (1)
@@ -60,6 +61,12 @@ void proiektua01()
 		
 		if(TeklaDetektatu()||ukimenUkitua()){
 			//ErlojuaGelditu();
+
+			if (SakatutakoTekla()==L)
+			{
+				logak();
+			}
+			
 			if (SakatutakoTekla()==SELECT && EGOERA==ZAI){
 				EGOERA=INSTRUKZIOAK;
 				
@@ -71,11 +78,13 @@ void proiektua01()
 			{
 				consoleClear();
 				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+				erakutsiKolorea(beltza);
 				//ErlojuaMartxanJarri();
 				//erakutsiDefault();
-				erakutsiAtea();
+				//erakutsiAtea();
 				EGOERA=ERAKUTSI;
 				//zenbat=0;
+				input_index=0;
 			}
 
 			// if (EGOERA==ERAKUTSI)
@@ -92,14 +101,15 @@ void proiektua01()
 			{
 				//ErlojuaMartxanJarri();
 				//erakutsiDefault();
-				int kol = zona();
+				kol = zona();
 				iprintf("\x1b[22;1HKolorea: %d", kol);
 				if (kol==-1)
 				{
-					EGOERA=ITXITA;
+					EGOERA=ERROR;
 				}else{
 					if (sekuentzia[input_index]==kol)
 					{
+						erakutsiKolorea(kol);
 						input_index++;
 						iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
 						if (input_index == luzera) {
@@ -149,9 +159,17 @@ void proiektua01()
 			iprintf("\x1b[14;1HGAME OVER");	
 			iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
 			EGOERA=GALDU;
+			asmatuta=0;
+			zenbat=0;
+			luzera=0;
+			input_index=0;
 			
 		}
 	
+		if(EGOERA==ERROR){
+			logak();
+
+		}
 			
 	}
 	IME=0;// Bukaeran etenak galarazi.
@@ -190,5 +208,26 @@ void konbErakutsi(){
 	
 }
 
+void logak(){
+	consoleClear();
+	iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+	iprintf("\x1b[18;1HKolorea: %d", kol);
+	iprintf("\x1b[1;1HInputIndex: %d", input_index);
+	iprintf("\x1b[3;1Hzenbat: %d", zenbat);
+	iprintf("\x1b[5;1HLuzeera: %d", luzera);
+	
+	size_t i;
+	int non =7;
+	for (i = 0; i < luzera; i++)
+	{
+		if (i>(non*2))
+		{
+			non++;
+		}
+		
+		iprintf("\x1b[%d;%dHInputIndex: %d", non, i+2, sekuentzia[zenbat]);
+	}
+	
+}
 /***********************2025-2026*******************************/
 
