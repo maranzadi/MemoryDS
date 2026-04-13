@@ -101,6 +101,7 @@ void proiektua01()
 				}else{
 					if (sekuentzia[input_index]==kol)
 					{
+						erakutsiKolorea(kol)
 						input_index++;
 						iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
 						if (input_index == luzera) {
