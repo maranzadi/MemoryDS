@@ -47,7 +47,7 @@ void proiektua01()
 	TekEtenBaimendu();			 // Teklatuaren etenak baimendu
 	DenbEtenBaimendu();			// Tenporizadorearen etenak baimendu.
 	konbinzaioan_gehitu();
-
+	erakutsiDefault();
 
 	ErlojuaMartxanJarri();
 	while (1)
