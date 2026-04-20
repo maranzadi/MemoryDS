@@ -31,6 +31,7 @@ int input_index=0;
 int kol =-2;
 
 int logEgin=0;
+EGOERA=ZAI; 
 void proiektua01()
 {
 	
@@ -40,12 +41,12 @@ void proiektua01()
 	int tekla=0;
 	zenbat=0;
 
-	EGOERA=ZAI; 	        // Egoera definitu
+		        // Egoera definitu
 
 	SarreraPantailaratu(); // Sarreran dagoen testua pantailan idatzi, Grafikoak.c -n definituta
 		
 	konfiguratuTenporizadorea(49152,0x43);   //Tenporizadorea segunduan 20 aldiz kontatzeko segunduro.
-	konfiguratuTeklatua(0X4009);	           // A tekla eta START teklak etenen bidez erabiltzeko.
+	konfiguratuTeklatua(0X400C);	           // SELECT tekla eta START teklak etenen bidez erabiltzeko.
 	etenZerbErrutEzarri();			  // Zerbitzu errutinak gordetzen ditu.
 	TekEtenBaimendu();			 // Teklatuaren etenak baimendu
 	DenbEtenBaimendu();			// Tenporizadorearen etenak baimendu.
@@ -78,24 +79,10 @@ void proiektua01()
 				
 			}
 			
-			if (SakatutakoTekla()==SELECT && EGOERA==ZAI){
-				EGOERA=INSTRUKZIOAK;
-				
-				InfoPantailaratu(); //Informazioa pantailan jartzen du
 			
-			}
-
 			if (SakatutakoTekla()==START && (EGOERA==ZAI || EGOERA==INSTRUKZIOAK))
 			{
-				consoleClear();
-				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
-				erakutsiKolorea(beltza);
-				//ErlojuaMartxanJarri();
-				//erakutsiDefault();
-				//erakutsiAtea();
-				EGOERA=ERAKUTSI;
-				//zenbat=0;
-				input_index=0;
+				
 			}
 
 			// if (EGOERA==ERAKUTSI)
@@ -114,12 +101,7 @@ void proiektua01()
 				//erakutsiDefault();
 				kol = zona();
 				iprintf("\x1b[22;1HKolorea: %d", kol);
-				if (kol==-1)
-				{
-					EGOERA=ITXITA;
-					logEgin=LOG;
-				}else{
-					if (sekuentzia[input_index]==kol)
+				if (sekuentzia[input_index]==kol)
 					{
 						erakutsiKolorea(kol);
 						input_index++;
@@ -137,8 +119,6 @@ void proiektua01()
 						EGOERA=ITXITA;
 						erakutsiKolorea(sekuentzia[input_index]);
 					}
-					
-				}
 				
 
 			}
@@ -175,6 +155,7 @@ void proiektua01()
 			zenbat=0;
 			luzera=0;
 			input_index=0;
+			konbinzaioan_gehitu();
 			
 		}
 	

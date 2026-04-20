@@ -23,12 +23,25 @@ void tekEten ()
 {
 	if(EGOERA==INSTRUKZIOAK || EGOERA==ZAI){
 		if(SakatutakoTekla()==START){
-			GrafikoakHasieratu();
-			//iprintf("\x1b[1;5H INST HASI");
-			EGOERA=ERAKUTSI;
-			ErlojuaMartxanJarri();
+			consoleClear();
+				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+				erakutsiKolorea(beltza);
+				//ErlojuaMartxanJarri();
+				//erakutsiDefault();
+				//erakutsiAtea();
+				EGOERA=ERAKUTSI;
+				//zenbat=0;
+				input_index=0;
 		}
 	}
+
+	if (SakatutakoTekla()==SELECT && EGOERA==ZAI){
+				EGOERA=INSTRUKZIOAK;
+				
+				InfoPantailaratu(); //Informazioa pantailan jartzen du
+			
+			}
+
 
 
 
@@ -68,6 +81,19 @@ void tenpEten()
 			}
 		}
 	}
+
+	// if (EGOERA==zerbait){
+	// 	tik++;
+	// 	if (tik==2){
+	// 		tik=0;
+	// 		seg++;
+
+	// 		erakutsiKolorea(beltza);
+	// 		EGOERA=ERAKUTSI;
+	// 	}
+	// }
+
+
 	if (EGOERA==ZAI){
 		//consoleClear();
 		tik++;

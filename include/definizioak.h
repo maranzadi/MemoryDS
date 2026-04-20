@@ -50,6 +50,7 @@ touchPosition PANT_DAT;
 #define ITXITA			4
 #define GALDU			5
 #define LOG           66
+#define zerbait         77
 extern int EGOERA;
 extern int zenbat;
 
