@@ -109,11 +109,10 @@ void proiektua01()
 					erakutsiKolorea(kol);
 					input_index++;
 					iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
-					if (input_index == luzera) {
+					if (input_index >= luzera) {
 						konbinzaioan_gehitu();
 						input_index = 0;
 						asmatuta++;
-						zenbat=0;
 						EGOERA=ERAKUTSI;
 					}
 
@@ -183,8 +182,8 @@ int ausazko_zbki_bat_itzuli(){	// Funtzio honek 0tik 3rako ausazko zenbaki bat i
 void konbinzaioan_gehitu(){  // Prozedura honek 0tik 3rako ausazko zenbaki bat konbinazio arrayan gehitzen du 
 			    // hau beteta ez dagoen bitartean 
 	int gehitu = ausazko_zbki_bat_itzuli();  
-	sekuentzia[luzera++]=gehitu;
-	
+	sekuentzia[luzera]=gehitu;
+	luzera++;
 	
 } 
 void konbErakutsi(){
