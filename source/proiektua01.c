@@ -80,10 +80,7 @@ void proiektua01()
 			}
 			
 			
-			if (SakatutakoTekla()==START && (EGOERA==ZAI || EGOERA==INSTRUKZIOAK))
-			{
-				
-			}
+			
 
 			// if (EGOERA==ERAKUTSI)
 			// {
@@ -102,24 +99,24 @@ void proiektua01()
 				kol = zona();
 				iprintf("\x1b[22;1HKolorea: %d", kol);
 				if (sekuentzia[input_index]==kol)
-					{
-						erakutsiKolorea(kol);
-						input_index++;
-						iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
-						if (input_index == luzera) {
-							konbinzaioan_gehitu();
-							input_index = 0;
-							asmatuta++;
-							zenbat=0;
-							EGOERA=ERAKUTSI;
-						}
-
-					}else{
-						
-						EGOERA=ITXITA;
-						erakutsiKolorea(sekuentzia[input_index]);
+				{
+					erakutsiKolorea(kol);
+					input_index++;
+					iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+					if (input_index == luzera) {
+						konbinzaioan_gehitu();
+						input_index = 0;
+						asmatuta++;
+						zenbat=0;
+						EGOERA=ERAKUTSI;
 					}
-				
+
+				}else{
+					
+					EGOERA=ITXITA;
+					erakutsiKolorea(sekuentzia[input_index]);
+				}
+			
 
 			}
 			
