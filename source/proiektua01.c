@@ -91,13 +91,19 @@ void proiektua01()
 			// 	//iprintf("\x1b[22;1HKolorea: %d", 6);
 
 			// }
+
+			if (EGOERA==JASO)
+			{
+				iprintf("\x1b[21;1HKolorea: %d", sekuentzia[input_index]);
+			}
+			
 			
 			if (ukimenUkitua() && EGOERA==JASO)
 			{
 				//ErlojuaMartxanJarri();
 				//erakutsiDefault();
 				kol = zona();
-				iprintf("\x1b[22;1HKolorea: %d", kol);
+				
 				if (sekuentzia[input_index]==kol)
 				{
 					erakutsiKolorea(kol);
@@ -199,6 +205,7 @@ void konbErakutsi(){
 
 void logak(){
 	consoleClear();
+	iprintf("\x1b[21;1HKolorea: %d", sekuentzia[input_index])
 	iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
 	iprintf("\x1b[18;1HKolorea: %d", kol);
 	iprintf("\x1b[1;1HInputIndex: %d", input_index);
