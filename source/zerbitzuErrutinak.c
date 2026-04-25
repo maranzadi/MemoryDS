@@ -64,9 +64,22 @@ void tenpEten()
 			seg++;
 
 			if (seg % 2 == 1){
-				// Mostrar color de la secuencia
+				int lehenago=-1;
+				if (zenbat>0)
+				{
+					lehenago=sekuentzia[zenbat--];
+				}
+				
 				int aukera = sekuentzia[zenbat];
-				erakutsiKolorea(aukera);
+				if (lehenago==aukera)
+				{
+					erakutsiBlack();
+					seg--;
+				}else{
+					erakutsiKolorea(aukera);
+				}
+				
+				
 			} else {
 				// Limpiar pantalla
 				//erakutsiDefault();
