@@ -100,7 +100,7 @@ void proiektua01()
 			}
 			
 			
-			if (ukimenUkitua() && EGOERA==JASO $$ ukituDaiteke==BAI)
+			if (ukimenUkitua() && EGOERA==JASO && ukituDaiteke==BAI)
 			{
 				//ErlojuaMartxanJarri();
 				//erakutsiDefault();
@@ -116,6 +116,7 @@ void proiektua01()
 						konbinzaioan_gehitu();
 						input_index = 0;
 						asmatuta++;
+						erakutsiBlack;
 						EGOERA=ERAKUTSI;
 					}
 
@@ -129,7 +130,7 @@ void proiektua01()
 			}
 			if (!ukimenUkitua())
 			{
-				ukituDaiteke=EZ;
+				ukituDaiteke=BAI;
 			}
 			
 			
@@ -218,7 +219,7 @@ void logak(){
 	iprintf("\x1b[6;1HUkitu: %d", ukituDaiteke);
 	iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
 	iprintf("\x1b[18;1HKolorea: %d", kol);
-	iprintf("\x1b[21;1HKolorea: %d", sekuentzia[input_index])
+	iprintf("\x1b[21;1HKolorea: %d", sekuentzia[input_index]);
 	
 	
 	
@@ -232,7 +233,7 @@ void logak(){
 			non++;
 		}
 		
-		iprintf("\x1b[%d;%dHSekuentzia: %d", non, i+2, sekuentzia[zenbat]);
+		iprintf("\x1b[%d;%dHSekuentzia: %d", non, i+2, sekuentzia[i]);
 	}
 	
 }
