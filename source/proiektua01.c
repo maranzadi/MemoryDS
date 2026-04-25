@@ -111,11 +111,11 @@ void proiektua01()
 				{
 					erakutsiKolorea(kol);
 					input_index++;
+					asmatuta++;
 					iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
 					if (input_index >= luzera) {
 						konbinzaioan_gehitu();
 						input_index = 0;
-						asmatuta++;
 						erakutsiBlack;
 						EGOERA=ERAKUTSI;
 					}

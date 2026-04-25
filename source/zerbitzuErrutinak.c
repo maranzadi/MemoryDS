@@ -135,8 +135,8 @@ void tenpEten()
 			erakutsiKolorea(beltza);
 			segPunt++;
 			tik=0;
-			iprintf("\x1b[13;5HDenbora=%d", (asmatuta+5)-segPunt);
-			if (segPunt>asmatuta+5)
+			iprintf("\x1b[13;5HDenbora=%d", (luzera+5)-segPunt);
+			if (segPunt>luzera+5)
 			{
 				EGOERA=ITXITA;
 			}
