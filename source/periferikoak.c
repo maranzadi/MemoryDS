@@ -84,7 +84,7 @@ int zona(){
 	int y = touch.py;
 
 	
-	iprintf("\x1b[3;1Hx: %d y: %d", x, y);
+	//iprintf("\x1b[3;1Hx: %d y: %d", x, y);
 
 	//Depende ze zonetan ikutzen den bueltatuko du zona bat edo beste
 	if (x<127 && y<95)
