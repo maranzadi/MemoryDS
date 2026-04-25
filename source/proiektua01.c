@@ -30,6 +30,8 @@ int luzera=0;
 int input_index=0;
 int kol =-2;
 
+int ukituDaiteke=BAI;
+
 int logEgin=0;
 EGOERA=ZAI; 
 void proiektua01()
@@ -98,11 +100,12 @@ void proiektua01()
 			}
 			
 			
-			if (ukimenUkitua() && EGOERA==JASO)
+			if (ukimenUkitua() && EGOERA==JASO $$ ukituDaiteke==BAI)
 			{
 				//ErlojuaMartxanJarri();
 				//erakutsiDefault();
 				kol = zona();
+				ukituDaiteke=EZ;
 				
 				if (sekuentzia[input_index]==kol)
 				{
@@ -124,6 +127,11 @@ void proiektua01()
 			
 
 			}
+			if (!ukimenUkitua())
+			{
+				ukituDaiteke=EZ;
+			}
+			
 			
 
 			if ((SakatutakoTekla()==A) && (EGOERA==GALDU))

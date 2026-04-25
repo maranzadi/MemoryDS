@@ -64,3 +64,6 @@ extern int zenbat;
 #define beltza 4
 
 #define  MAX 50
+
+#define BAI 1
+#define EZ 0
