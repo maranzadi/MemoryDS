@@ -215,6 +215,7 @@ void logak(){
 	iprintf("\x1b[1;1HInputIndex: %d", input_index);
 	iprintf("\x1b[3;1Hzenbat: %d", zenbat);
 	iprintf("\x1b[5;1HLuzeera: %d", luzera);
+	iprintf("\x1b[6;1HUkitu: %d", ukituDaiteke);
 	iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
 	iprintf("\x1b[18;1HKolorea: %d", kol);
 	iprintf("\x1b[21;1HKolorea: %d", sekuentzia[input_index])
