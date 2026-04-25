@@ -94,7 +94,7 @@ void tenpEten()
 	// }
 
 
-	if (EGOERA==ZAI){
+	if (EGOERA==ZAI || EGOERA==INSTRUKZIOAK){
 		//consoleClear();
 		tik++;
 		if (tik==2){
