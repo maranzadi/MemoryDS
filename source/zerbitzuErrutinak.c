@@ -24,14 +24,10 @@ void tekEten ()
 	if(EGOERA==INSTRUKZIOAK || EGOERA==ZAI){
 		if(SakatutakoTekla()==START){
 			consoleClear();
-				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
-				erakutsiKolorea(beltza);
-				//ErlojuaMartxanJarri();
-				//erakutsiDefault();
-				//erakutsiAtea();
-				EGOERA=ERAKUTSI;
-				//zenbat=0;
-				input_index=0;
+			iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+			erakutsiKolorea(beltza);
+			EGOERA=ERAKUTSI;
+			input_index=0;
 		}
 	}
 
@@ -94,7 +90,7 @@ void tenpEten()
 	// }
 
 
-	if (EGOERA==ZAI || EGOERA==INSTRUKZIOAK){
+	if (EGOERA==ZAI){
 		//consoleClear();
 		tik++;
 		if (tik==2){
