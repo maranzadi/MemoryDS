@@ -49,7 +49,8 @@ touchPosition PANT_DAT;
 #define JASO			3
 #define ITXITA			4
 #define GALDU			5
-#define ERROR           66
+#define LOG           66
+#define zerbait         77
 extern int EGOERA;
 extern int zenbat;
 
@@ -63,3 +64,6 @@ extern int zenbat;
 #define beltza 4
 
 #define  MAX 50
+
+#define BAI 1
+#define EZ 0

@@ -13,6 +13,8 @@ void logak();
 extern int asmatuta;
 extern int luzera;
 extern int sekuentzia[MAX];
+extern int logEgin;
+extern int input_index;
 
 /***********************2025-2026*******************************/
 

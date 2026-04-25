@@ -29,6 +29,11 @@ int zenbat=0;
 int luzera=0;
 int input_index=0;
 int kol =-2;
+
+int ukituDaiteke=BAI;
+
+int logEgin=0;
+EGOERA=ZAI; 
 void proiektua01()
 {
 	
@@ -38,12 +43,12 @@ void proiektua01()
 	int tekla=0;
 	zenbat=0;
 
-	EGOERA=ZAI; 	        // Egoera definitu
+		        // Egoera definitu
 
 	SarreraPantailaratu(); // Sarreran dagoen testua pantailan idatzi, Grafikoak.c -n definituta
 		
 	konfiguratuTenporizadorea(49152,0x43);   //Tenporizadorea segunduan 20 aldiz kontatzeko segunduro.
-	konfiguratuTeklatua(0X4009);	           // A tekla eta START teklak etenen bidez erabiltzeko.
+	konfiguratuTeklatua(0X400C);	           // SELECT tekla eta START teklak etenen bidez erabiltzeko.
 	etenZerbErrutEzarri();			  // Zerbitzu errutinak gordetzen ditu.
 	TekEtenBaimendu();			 // Teklatuaren etenak baimendu
 	DenbEtenBaimendu();			// Tenporizadorearen etenak baimendu.
@@ -65,27 +70,19 @@ void proiektua01()
 			if (SakatutakoTekla()==L)
 			{
 				logak();
-			}
-			
-			if (SakatutakoTekla()==SELECT && EGOERA==ZAI){
-				EGOERA=INSTRUKZIOAK;
+				logEgin=LOG;
 				
-				InfoPantailaratu(); //Informazioa pantailan jartzen du
-			
 			}
 
-			if (SakatutakoTekla()==START && (EGOERA==ZAI || EGOERA==INSTRUKZIOAK))
+			if (SakatutakoTekla()==R)
 			{
 				consoleClear();
-				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
-				erakutsiKolorea(beltza);
-				//ErlojuaMartxanJarri();
-				//erakutsiDefault();
-				//erakutsiAtea();
-				EGOERA=ERAKUTSI;
-				//zenbat=0;
-				input_index=0;
+				logEgin=0;
+				
 			}
+			
+			
+			
 
 			// if (EGOERA==ERAKUTSI)
 			// {
@@ -96,40 +93,46 @@ void proiektua01()
 			// 	//iprintf("\x1b[22;1HKolorea: %d", 6);
 
 			// }
+
+			if (EGOERA==JASO)
+			{
+				iprintf("\x1b[21;1HKolorea: %d", sekuentzia[input_index]);
+			}
 			
-			if (ukimenUkitua() && EGOERA==JASO)
+			
+			if (ukimenUkitua() && EGOERA==JASO && ukituDaiteke==BAI)
 			{
 				//ErlojuaMartxanJarri();
 				//erakutsiDefault();
 				kol = zona();
-				iprintf("\x1b[22;1HKolorea: %d", kol);
-				if (kol==-1)
-				{
-					EGOERA=ERROR;
-				}else{
-					if (sekuentzia[input_index]==kol)
-					{
-						erakutsiKolorea(kol);
-						input_index++;
-						iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
-						if (input_index == luzera) {
-							konbinzaioan_gehitu();
-							input_index = 0;
-							asmatuta++;
-							zenbat=0;
-							EGOERA=ERAKUTSI;
-						}
-
-					}else{
-						
-						EGOERA=ITXITA;
-						erakutsiKolorea(sekuentzia[input_index]);
-					}
-					
-				}
+				ukituDaiteke=EZ;
 				
+				if (sekuentzia[input_index]==kol)
+				{
+					erakutsiKolorea(kol);
+					input_index++;
+					asmatuta++;
+					iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+					if (input_index >= luzera) {
+						konbinzaioan_gehitu();
+						input_index = 0;
+						erakutsiBlack;
+						EGOERA=ERAKUTSI;
+					}
+
+				}else{
+					
+					EGOERA=ITXITA;
+					erakutsiKolorea(sekuentzia[input_index]);
+				}
+			
 
 			}
+			if (!ukimenUkitua())
+			{
+				ukituDaiteke=BAI;
+			}
+			
 			
 
 			if ((SakatutakoTekla()==A) && (EGOERA==GALDU))
@@ -163,13 +166,13 @@ void proiektua01()
 			zenbat=0;
 			luzera=0;
 			input_index=0;
+			konbinzaioan_gehitu();
 			
 		}
 	
-		if(EGOERA==ERROR){
-			logak();
-
-		}
+		// if(logEgin==LOG){
+		// 	logak();
+		// }
 			
 	}
 	IME=0;// Bukaeran etenak galarazi.
@@ -188,8 +191,8 @@ int ausazko_zbki_bat_itzuli(){	// Funtzio honek 0tik 3rako ausazko zenbaki bat i
 void konbinzaioan_gehitu(){  // Prozedura honek 0tik 3rako ausazko zenbaki bat konbinazio arrayan gehitzen du 
 			    // hau beteta ez dagoen bitartean 
 	int gehitu = ausazko_zbki_bat_itzuli();  
-	sekuentzia[luzera++]=gehitu;
-	
+	sekuentzia[luzera]=gehitu;
+	luzera++;
 	
 } 
 void konbErakutsi(){
@@ -210,11 +213,16 @@ void konbErakutsi(){
 
 void logak(){
 	consoleClear();
-	iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
-	iprintf("\x1b[18;1HKolorea: %d", kol);
 	iprintf("\x1b[1;1HInputIndex: %d", input_index);
 	iprintf("\x1b[3;1Hzenbat: %d", zenbat);
 	iprintf("\x1b[5;1HLuzeera: %d", luzera);
+	iprintf("\x1b[6;1HUkitu: %d", ukituDaiteke);
+	iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+	iprintf("\x1b[18;1HKolorea: %d", kol);
+	iprintf("\x1b[21;1HKolorea: %d", sekuentzia[input_index]);
+	
+	
+	
 	
 	size_t i;
 	int non =7;
@@ -225,7 +233,7 @@ void logak(){
 			non++;
 		}
 		
-		iprintf("\x1b[%d;%dHInputIndex: %d", non, i+2, sekuentzia[zenbat]);
+		iprintf("\x1b[%d;%dHSekuentzia: %d", non, i+2, sekuentzia[i]);
 	}
 	
 }

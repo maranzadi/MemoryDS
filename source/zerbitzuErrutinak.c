@@ -23,12 +23,25 @@ void tekEten ()
 {
 	if(EGOERA==INSTRUKZIOAK || EGOERA==ZAI){
 		if(SakatutakoTekla()==START){
-			GrafikoakHasieratu();
-			//iprintf("\x1b[1;5H INST HASI");
-			EGOERA=ERAKUTSI;
-			ErlojuaMartxanJarri();
+			consoleClear();
+				iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+				erakutsiKolorea(beltza);
+				//ErlojuaMartxanJarri();
+				//erakutsiDefault();
+				//erakutsiAtea();
+				EGOERA=ERAKUTSI;
+				//zenbat=0;
+				input_index=0;
 		}
 	}
+
+	if (SakatutakoTekla()==SELECT && EGOERA==ZAI){
+				EGOERA=INSTRUKZIOAK;
+				
+				InfoPantailaratu(); //Informazioa pantailan jartzen du
+			
+			}
+
 
 
 
@@ -68,7 +81,20 @@ void tenpEten()
 			}
 		}
 	}
-	if (EGOERA==ZAI){
+
+	// if (EGOERA==zerbait){
+	// 	tik++;
+	// 	if (tik==2){
+	// 		tik=0;
+	// 		seg++;
+
+	// 		erakutsiKolorea(beltza);
+	// 		EGOERA=ERAKUTSI;
+	// 	}
+	// }
+
+
+	if (EGOERA==ZAI || EGOERA==INSTRUKZIOAK){
 		//consoleClear();
 		tik++;
 		if (tik==2){
@@ -109,8 +135,8 @@ void tenpEten()
 			erakutsiKolorea(beltza);
 			segPunt++;
 			tik=0;
-			iprintf("\x1b[13;5HDenbora=%d", (asmatuta+5)-segPunt);
-			if (segPunt>asmatuta+5)
+			iprintf("\x1b[13;5HDenbora=%d", (luzera+5)-segPunt);
+			if (segPunt>luzera+5)
 			{
 				EGOERA=ITXITA;
 			}
@@ -118,6 +144,19 @@ void tenpEten()
 		}
 		
 	}
+
+	// if (logEgin=LOG)
+	// {
+	// 	tik++;
+		
+	// 	if (tik==3)
+	// 	{
+	// 		logak();
+	// 		tik=0;
+			
+	// 	}
+	// }
+	
 	
 
 }
