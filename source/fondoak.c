@@ -38,7 +38,8 @@ void erakutsifondo1() {    //ALDATU DAGOKION IRUDIA !!!!
                      fondo1BitmapLen); // Luzera (bytetan); automatikoki sortzen den aldagaia
 }
 
-void erakutsiKolorea(int kolorea){
+void erakutsiKolorea(int kolorea){// Erakutsi pasatzen zaion kolorea
+    // Baldin eta zein balio pasatzen dio, deitzen dio funtzioari non erakutsiko duen kolorea fondoan.
     if (kolorea==urdina)
     {
         erakutsiurdin();

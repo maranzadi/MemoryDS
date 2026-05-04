@@ -166,7 +166,6 @@ void proiektua01()
 			zenbat=0;
 			luzera=0;
 			input_index=0;
-			konbinzaioan_gehitu();
 			
 		}
 	

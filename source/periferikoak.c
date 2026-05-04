@@ -22,6 +22,9 @@ int TeklaDetektatu()
 
 }
 
+/*
+Hemen begiratzen dugu maskararekin jakiteko zein tekla ukitu den.
+*/
 int SakatutakoTekla() 
 {
 	if    ((~TEKLAK_DAT& 0x0001)!=0)  return A; //A 
@@ -37,6 +40,16 @@ int SakatutakoTekla()
 
 	return -1;
 	
+	// size_t i;
+	// for (i = 0; i < 10; i++)
+	// {
+	// 	if (~TEKLAK_DAT & 1<<i)
+	// 	{
+	// 		return i;
+	// 	}
+		
+	// }
+	
 
 
 
@@ -48,9 +61,13 @@ int SakatutakoTekla()
 
 }
 
+/*
+Hemen begiratzen dugu ea ikutu den pantaila. pasatzen diogu baliablearen memoria posizioa bertan idazteko pantailaren datuak. Jakiteko ukitu den a la ez.
+x eta y baldin badaude 0 esan nahi du ez dela ukitu pantaila.
+*/
 int ukimenUkitua() {
 
-	touchRead(&pos_pantaila); // libnds-ko funtzioa
+	touchRead(&pos_pantaila); // libnds-ko funtzioa eta pasatzen diogu gure baliablearen memoria posizioa
 	
 	// Ez badago pixelik ukituta, return 0, bestela 1
 	
@@ -59,7 +76,11 @@ int ukimenUkitua() {
 }
 
   
+/*
+Deklaratzen dugu baliable bat non gorde egingo dugun ukitu diren pantailaren posizioak.
 
+Goian egiten dugun gauza bera baina ez dugu begiratzen ukitu ten a la ez. Bueltatu egiten ditugu datuak erabiltzeko zona funtzioan.
+*/
 touchPosition ukimenPos() {
 
 	touchPosition pos;
@@ -69,6 +90,11 @@ touchPosition ukimenPos() {
 	return pos;
 
 }
+
+/*
+Nintendo DS-eko pantaila denez 256x192 4 zonetan banalduko dugu, eta modu horretan jakingo dugu zeinetan ukitu den eta horrekin konparatu erantzatu zuzenarekin.
+Erabiltzen dugu x eta y balioak begiratzeko kuadrantea eta horren baitan bueltatzen dugu deklaratutako kolorea.
+*/
 
 int zona(){
 

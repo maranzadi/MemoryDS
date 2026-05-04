@@ -19,18 +19,28 @@ ZerbitzuErrutinak.c
 int EGOERA; // Automata zein egoeratan dagoen adierazteko erabilia
 //int 3seg;   // Hiru segundo pasatzen ote diren ikusten joateko
 
-void tekEten ()
+void tekEten () // Sakatu egin den teklatuaren etenarentzat erabiltzen da
 {
+	 /*
+	 Egoera baldin bata INTSUKZIOAK edo ZAI eta sakatzen bada START botoia, garbitzen dugu goiko pantaila, eta imprimatzen dugu daukagun puntuazioa, kasu honetan beti izango dela 0
+	 Ondoren gehitzen dugu listara zein izango den hurrengo kolorea, asieran denez, utzi dago, ordun gehitzen dugu lehenengoa eta beltza jartzen dugu fondoa, horrela animazioa garbitzen dugun.
+	 Eta pasatzen gara erakutsi egoerara.
+	 */
 	if(EGOERA==INSTRUKZIOAK || EGOERA==ZAI){
 		if(SakatutakoTekla()==START){
 			consoleClear();
 			iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+			konbinzaioan_gehitu();
 			erakutsiKolorea(beltza);
 			EGOERA=ERAKUTSI;
 			input_index=0;
 		}
 	}
 
+
+	/*
+	Baldin bagaude ZAI egoeran eta select klikatzen badugu erakusten digu jolasaren instrukzioak.
+	*/
 	if (SakatutakoTekla()==SELECT && EGOERA==ZAI){
 				EGOERA=INSTRUKZIOAK;
 				
@@ -44,7 +54,7 @@ void tekEten ()
 }
 int segPunt=0;
 void tenpEten()
-{
+{ // Hemen daukagu kodea erlojuak zein komandu exekutatu behar dituen
 	static int tik=0;
 	static int seg=0;
 	static int seg3=0;
@@ -53,6 +63,11 @@ void tenpEten()
 	
 
 	//iprintf("\x1b[23;5HErlojua hasita");
+
+	/*
+	ERAKUTSI egoeran egiten duguna da erakutsi koloreen sekuentzia. Hortako bi segundutikan behin erakusten dugu listako hurrengo zenbakia eta horrek esaten digu zein kolore erakutsi behar den.
+	Gordetzen dugu zenbat aldagaian zenbat kolore erakutsi ditugun. Erakutsi ditugun kolorean baldin badira listan dauden elementuen baino luzeago edo berdin den ordun esan nahi du bukatu duela eta JASO egoerara pasatzen da.
+	*/
 	if (EGOERA==ERAKUTSI){
 		tik++;
 		if (tik==2){
@@ -90,6 +105,10 @@ void tenpEten()
 	// }
 
 
+	/*
+	ZAI egoeran, hau da jolasa asieratzean, animazio txiki bat jarri dugu, non dauden 4 koloreak bueltaka. Ordun egiten dugu da, 2 tik egitean segundu bat gehitu eta ondoren erakutsi kolorea.
+	Egiten dugu seg-1 da koloreak 0-tik 3-ra daudenez  (4 da beltza) erakusteko zero garen kolorea eta horrela zirkulu batean.
+	*/
 	if (EGOERA==ZAI){
 		//consoleClear();
 		tik++;
@@ -122,6 +141,11 @@ void tenpEten()
 		}
 	}
 
+
+	/* JASO egoeran gertatzen dena da, jolasa prest dagoela jasotzeko jokalariak non ukitzen duen. Ordun dagoenez denboragailu bat 0-ra iristean galtzeko.
+		Baina egin dugun moduan denbora goraka doa ordun iristean listararen luzeera+5 segundutan galtzen dugu automatikoki.
+		Egiten denbora pantailan beraka joatea, simplemente egiten dugu, eduki al dugun denbora maximoa - zenbat segundu goazen. Horrela 0-ra iristean da gauza bera denbora pasatzea ditugun segundu maximotikan.
+	*/
 	if (EGOERA==JASO)
 	{
 		tik++;

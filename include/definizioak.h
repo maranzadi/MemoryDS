@@ -63,7 +63,9 @@ extern int zenbat;
 #define berdea 3
 #define beltza 4
 
+// Arrayaren tamaina maximoa
 #define  MAX 50
 
+// Pantaila ukitu daiteken edo ez egiteko erabiltzen da
 #define BAI 1
 #define EZ 0
