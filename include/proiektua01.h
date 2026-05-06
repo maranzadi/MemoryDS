@@ -8,6 +8,7 @@ void konbErakutsi();
 void konbinzaioan_gehitu();
 int ausazko_zbki_bat_itzuli();
 void logak();
+void galduDegu();
  /// MAX definituta (ARRAYAREN TAMAINA MAXIMOA)
 
 extern int asmatuta;

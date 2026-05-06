@@ -56,7 +56,7 @@ void proiektua01()
 	etenZerbErrutEzarri();			  // Zerbitzu errutinak gordetzen ditu.
 	TekEtenBaimendu();			 // Teklatuaren etenak baimendu
 	DenbEtenBaimendu();			// Tenporizadorearen etenak baimendu.
-	konbinzaioan_gehitu();		// Gehitzen dugu listara lehenengo kolorea, bestela utzik hasiko zen.
+	//konbinzaioan_gehitu();		// Gehitzen dugu listara lehenengo kolorea, bestela utzik hasiko zen.
 	erakutsiDefault();			// Erakusten du lehenengo patroia, bakarrik atzeko fondoa
 
 	ErlojuaMartxanJarri();		// Erlojua asieratzen dugu
@@ -122,14 +122,15 @@ void proiektua01()
 					if (input_index >= luzera) {
 						konbinzaioan_gehitu();
 						input_index = 0;
-						erakutsiBlack;
+						erakutsiBlack();
 						EGOERA=ERAKUTSI;
 					}
 
 				}else{
 					
-					EGOERA=ITXITA;
+					EGOERA=GALDU;
 					erakutsiKolorea(sekuentzia[input_index]);
+					galduDegu();
 				}
 			
 
@@ -145,10 +146,6 @@ void proiektua01()
 			{
 				EGOERA=ZAI;
 				consoleClear();
-				asmatuta=0;
-				zenbat=0;
-				luzera=0;
-				input_index=0;
 				lcdSwap();
 				SarreraPantailaratu();
 				erakutsiDefault();
@@ -159,21 +156,7 @@ void proiektua01()
 			
  
 		}
-		if (EGOERA==ITXITA)
-		{
-			
-			consoleClear();
-			
-			lcdSwap();
-			iprintf("\x1b[14;1HGAME OVER");	
-			iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
-			EGOERA=GALDU;
-			asmatuta=0;
-			zenbat=0;
-			luzera=0;
-			input_index=0;
-			
-		}
+		
 	
 		// if(logEgin==LOG){
 		// 	logak();
@@ -241,6 +224,20 @@ void logak(){
 		iprintf("\x1b[%d;%dHSekuentzia: %d", non, i+2, sekuentzia[i]);
 	}
 	
+}
+
+
+void galduDegu(){
+	consoleClear();
+			
+	lcdSwap();
+	iprintf("\x1b[14;1HGAME OVER");	
+	iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+	EGOERA=GALDU;
+	asmatuta=0;
+	zenbat=0;
+	luzera=0;
+	input_index=0;
 }
 /***********************2025-2026*******************************/
 
