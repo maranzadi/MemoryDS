@@ -158,7 +158,8 @@ void tenpEten()
 			iprintf("\x1b[13;5HDenbora=%d", (luzera+5)-segPunt);
 			if (segPunt>luzera+5)
 			{
-				EGOERA=ITXITA;
+				EGOERA=GALDU;
+				galduDegu();
 			}
 			
 		}
