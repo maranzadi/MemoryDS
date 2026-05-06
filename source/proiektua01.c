@@ -56,7 +56,7 @@ void proiektua01()
 	etenZerbErrutEzarri();			  // Zerbitzu errutinak gordetzen ditu.
 	TekEtenBaimendu();			 // Teklatuaren etenak baimendu
 	DenbEtenBaimendu();			// Tenporizadorearen etenak baimendu.
-	konbinzaioan_gehitu();		// Gehitzen dugu listara lehenengo kolorea, bestela utzik hasiko zen.
+	//konbinzaioan_gehitu();		// Gehitzen dugu listara lehenengo kolorea, bestela utzik hasiko zen.
 	erakutsiDefault();			// Erakusten du lehenengo patroia, bakarrik atzeko fondoa
 
 	ErlojuaMartxanJarri();		// Erlojua asieratzen dugu
@@ -122,7 +122,7 @@ void proiektua01()
 					if (input_index >= luzera) {
 						konbinzaioan_gehitu();
 						input_index = 0;
-						erakutsiBlack;
+						erakutsiBlack();
 						EGOERA=ERAKUTSI;
 					}
 
