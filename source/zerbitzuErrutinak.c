@@ -74,28 +74,17 @@ void tenpEten()
 			tik=0;
 			seg++;
 
-			if (seg % 2 == 1){
-				int lehenago=-1;
-				if (zenbat>0)
-				{
-					lehenago=sekuentzia[zenbat--];
-				}
-				
+			if (seg % 3 == 1){
+						
 				int aukera = sekuentzia[zenbat];
-				if (lehenago==aukera)
-				{
-					erakutsiBlack();
-					seg--;
-				}else{
-					erakutsiKolorea(aukera);
-				}
+				erakutsiKolorea(aukera);
 				
 				
 			} else {
 				// Limpiar pantalla
 				//erakutsiDefault();
 				zenbat++;
-
+				erakutsiKolorea(beltza);
 				if (zenbat >= luzera){
 					zenbat = 0;
 					seg = 0;
