@@ -100,29 +100,41 @@ void proiektua01()
 
 			// }
 
-			if (EGOERA==JASO)
-			{
-				iprintf("\x1b[21;1HKolorea: %d", sekuentzia[input_index]);
-			}
+			// Erabiltzen genune jakiteko zein zen erantzun zuzena aukeratzekoan koloreak
+			// if (EGOERA==JASO)
+			// {
+			// 	iprintf("\x1b[21;1HKolorea: %d", sekuentzia[input_index]);
+			// }
 			
-			
+			// Erabiltzen dugu jakiteko ea gauden JASO egoera, eta ukitu daiteken pantaila.
+			// Bi baldintzak betetzen baditugu eta pantaila ukitzen bada, IF-eko kodea exekutatuko dugu.
 			if (ukimenUkitua() && EGOERA==JASO && ukituDaiteke==BAI)
 			{
 				//ErlojuaMartxanJarri();
 				//erakutsiDefault();
+				// Lortzen dugu ukitu dugun zonaren kolorea eta esaten diogu pantaila ezin dela ukitu.
 				kol = zona();
 				ukituDaiteke=EZ;
 				
+				// Ikutun dugun kolorea baldin bada listako egokia asmatu dugula esan nahi du, bestela galdu egin dugula eta GALDU egoerara pasatzen gara
 				if (sekuentzia[input_index]==kol)
 				{
+					// Asmatzen badugu erakusten dugu asmatutako kolorea jakiteko asmatu dugula
 					erakutsiKolorea(kol);
+					// Asmatzean, esaten diogu begiratu behar duela berriro klikatzean listako hurrengo balioa
 					input_index++;
+					// asmatutari +1 egiten diogu esanez asmatu dugula
 					asmatuta++;
 					iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+					// jakinda zenbat den listaren luzeera eta klik egin duguela listako elementu guztietatikam, esan nahi du erakutsi egoerara pasatzen garela
 					if (input_index >= luzera) {
+						// gehitzen dugu listara beste elementu bat
 						konbinzaioan_gehitu();
+						// reiniziatzen dugu balorea esateko ez dugula klikatu baliorik
 						input_index = 0;
+						// erakusten dugu fondo belta
 						erakutsiBlack();
+						// aldatzen gara erakutsi egoerara
 						EGOERA=ERAKUTSI;
 					}
 
