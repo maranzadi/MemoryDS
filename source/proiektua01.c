@@ -128,7 +128,6 @@ void proiektua01()
 
 				}else{
 					
-					EGOERA=GALDU;
 					erakutsiKolorea(sekuentzia[input_index]);
 					galduDegu();
 				}
