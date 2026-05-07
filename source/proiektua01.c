@@ -22,17 +22,21 @@ adibide batean oinarrituta.
 #include <time.h> //Alea sortzeko
 
 int denb; // denbora neurtzen joateko; baloratu ea beharrezkoa den
-int sekuentzia[MAX];
-int asmatuta=0;
-bool sortuta=false;
-int zenbat=0;
-int luzera=0;
-int input_index=0;
-int kol =-2;
+int sekuentzia[MAX]; // Hemen gorde egiten dira koloreak
+int asmatuta=0;		//	Hemen puntuazioa gorde egiten dugu
+bool sortuta=false;	//	Erabiltzen da jakiteko ea sortu egin den seed bat, ez bada sortu, sortu egiten du
+int zenbat=0;		// 	Erabiltzen da jakiteko zenbat kolore erakutsi diren pantailan
+int luzera=0;		//	Jakiteko zenbat elementu dauden listan, hau da, zenbat kolore dauden
+int input_index=0;	//	Honekin jakiten dugu zenbat aldiz klik egin dugun pantailan, hau da, jakiteko zenbatgaren kolorea asmatuko behar duen
+int kol =-2;		//	Erabiltzen da jakiteko ze kolore ukitu den pantailan, eta horrekin konparatu input_index-en egon behar den kolorearekin
 
+/*
+Hemengo honek arrazoi berezi bat dauka, pantaila ukitzen dugunez, eta denbora guztian dagoenez detektatzen, nahi degu bakarrik kontuan artzeko altzatzen dugunean arkatza pantailatik.
+Ordun honek interuptore moduan funtzionatzen du, jakiteko detektatu al duen pantaila edo ez
+*/
 int ukituDaiteke=BAI;
 
-int logEgin=0;
+// Hasieratzen dugu proiektua ZAI egoeran.
 EGOERA=ZAI; 
 void proiektua01()
 {
@@ -43,7 +47,7 @@ void proiektua01()
 	int tekla=0;
 	zenbat=0;
 
-		        // Egoera definitu
+	// Egoera definitu
 
 	SarreraPantailaratu(); // Sarreran dagoen testua pantailan idatzi, Grafikoak.c -n definituta
 		
@@ -52,10 +56,10 @@ void proiektua01()
 	etenZerbErrutEzarri();			  // Zerbitzu errutinak gordetzen ditu.
 	TekEtenBaimendu();			 // Teklatuaren etenak baimendu
 	DenbEtenBaimendu();			// Tenporizadorearen etenak baimendu.
-	konbinzaioan_gehitu();
-	erakutsiDefault();
+	//konbinzaioan_gehitu();		// Gehitzen dugu listara lehenengo kolorea, bestela utzik hasiko zen.
+	erakutsiDefault();			// Erakusten du lehenengo patroia, bakarrik atzeko fondoa
 
-	ErlojuaMartxanJarri();
+	ErlojuaMartxanJarri();		// Erlojua asieratzen dugu
 	while (1)
 	{	
 		//iprintf("\x1b[1;1HEgoera: %d", EGOERA);
@@ -64,21 +68,23 @@ void proiektua01()
 		// eta START sakatzean jokoa hasi
 
 		
-		if(TeklaDetektatu()||ukimenUkitua()){
+		if(TeklaDetektatu()||ukimenUkitua()){ // Nahi degu teklatua edo pantaila ukitzean kontuan artzea gertatzen dena
 			//ErlojuaGelditu();
 
+
+			/*
+			Hemengo bi if hauek egiten dutena da, erakutsi log-ak, ikusteko guk ze aldagai dauden debugeatzeko.
+			Eta R-ekin pantaila guztia garbitzen dugu
+			Denbora guztian baldin bazegoen pantailan imprimatzen log-ak, oso gaizki ikusten zen, zegoelako borratzen eta idazten. Horregatik klikatzean egitea erabaki genuen
+			*/
 			if (SakatutakoTekla()==L)
 			{
-				logak();
-				logEgin=LOG;
-				
+				logak();			
 			}
 
 			if (SakatutakoTekla()==R)
 			{
 				consoleClear();
-				logEgin=0;
-				
 			}
 			
 			
@@ -116,14 +122,15 @@ void proiektua01()
 					if (input_index >= luzera) {
 						konbinzaioan_gehitu();
 						input_index = 0;
-						erakutsiBlack;
+						erakutsiBlack();
 						EGOERA=ERAKUTSI;
 					}
 
 				}else{
 					
-					EGOERA=ITXITA;
+					EGOERA=GALDU;
 					erakutsiKolorea(sekuentzia[input_index]);
+					galduDegu();
 				}
 			
 
@@ -139,10 +146,6 @@ void proiektua01()
 			{
 				EGOERA=ZAI;
 				consoleClear();
-				asmatuta=0;
-				zenbat=0;
-				luzera=0;
-				input_index=0;
 				lcdSwap();
 				SarreraPantailaratu();
 				erakutsiDefault();
@@ -153,22 +156,7 @@ void proiektua01()
 			
  
 		}
-		if (EGOERA==ITXITA)
-		{
-			
-			consoleClear();
-			
-			lcdSwap();
-			iprintf("\x1b[14;1HGAME OVER");	
-			iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
-			EGOERA=GALDU;
-			asmatuta=0;
-			zenbat=0;
-			luzera=0;
-			input_index=0;
-			konbinzaioan_gehitu();
-			
-		}
+		
 	
 		// if(logEgin==LOG){
 		// 	logak();
@@ -236,6 +224,20 @@ void logak(){
 		iprintf("\x1b[%d;%dHSekuentzia: %d", non, i+2, sekuentzia[i]);
 	}
 	
+}
+
+
+void galduDegu(){
+	consoleClear();
+			
+	lcdSwap();
+	iprintf("\x1b[14;1HGAME OVER");	
+	iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
+	EGOERA=GALDU;
+	asmatuta=0;
+	zenbat=0;
+	luzera=0;
+	input_index=0;
 }
 /***********************2025-2026*******************************/
 
