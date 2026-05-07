@@ -70,11 +70,11 @@ void tenpEten()
 	*/
 	if (EGOERA==ERAKUTSI){
 		tik++;
-		if (tik==2){
+		if (tik==3){
 			tik=0;
 			seg++;
 
-			if (seg % 3 == 1){
+			if (seg % 2 == 1){
 						
 				int aukera = sekuentzia[zenbat];
 				erakutsiKolorea(aukera);
