@@ -129,7 +129,6 @@ void proiektua01()
 				}else{
 					
 					EGOERA=GALDU;
-					erakutsiKolorea(sekuentzia[input_index]);
 					galduDegu();
 				}
 			
@@ -229,7 +228,7 @@ void logak(){
 
 void galduDegu(){
 	consoleClear();
-			
+	erakutsiKolorea(sekuentzia[input_index]);
 	lcdSwap();
 	iprintf("\x1b[14;1HGAME OVER");	
 	iprintf("\x1b[16;1HPuntuazioa: %d", asmatuta);
