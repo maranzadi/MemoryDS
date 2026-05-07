@@ -141,23 +141,29 @@ void proiektua01()
 				}else{
 					
 					erakutsiKolorea(sekuentzia[input_index]);
+					// Galtzean deitzen diogu funtzio honeri erakusteko game over pantaila eta datuak berrabiarazteko
 					galduDegu();
 				}
 			
 
 			}
+			// Iterazio bakoitzean begiratzen du ea ez dagoen pantaila ukitzen, ez badago esaten diogu pantaila ukitu daitekela
 			if (!ukimenUkitua())
 			{
 				ukituDaiteke=BAI;
 			}
 			
 			
-
+			// Galdu egoeran baldin bagaude, eta A botoia klikatzean nahi degu hasieratu guztia hasieratikan
 			if ((SakatutakoTekla()==A) && (EGOERA==GALDU))
 			{
+				// Ezartzen diogu egoera ZAI moduan
 				EGOERA=ZAI;
+				// Garbitu pantailako datuak
 				consoleClear();
+				// Pantailak buelta egin berriro ongi jartzeko
 				lcdSwap();
+				// Sarrerako pantaila erakusten dugu
 				SarreraPantailaratu();
 				erakutsiDefault();
 			}
