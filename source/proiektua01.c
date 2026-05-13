@@ -133,7 +133,7 @@ void proiektua01()
 						// reiniziatzen dugu balorea esateko ez dugula klikatu baliorik
 						input_index = 0;
 						// erakusten dugu fondo belta
-						erakutsiBlack();
+						//erakutsiBlack();
 						// aldatzen gara erakutsi egoerara
 						EGOERA=ERAKUTSI;
 					}
